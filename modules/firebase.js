@@ -29,14 +29,18 @@ function updateTopics(){
       var prodName = document.createElement("h2");
       var prodDesc = document.createElement("p");
       var storeName = document.createElement("h4");
-      var storeLocation = document.createElement("h3");
+      var storeLocation = document.createElement("a");
       var image = document.createElement("img");
 
       prodPrice.innerHTML = topic.val().prodPrice;
       prodName.innerHTML = topic.val().prodName;
       prodDesc.innerHTML = topic.val().prodDesc;
       storeName.innerHTML = topic.val().storeName;
-      storeLocation.innerHTML = topic.val().storeLocation;
+
+      var link = document.createTextNode("View on Google Maps");
+      storeLocation.appendChild(link);
+      storeLocation.title = "View on Google Maps";
+      storeLocation.href = "https://www.google.com/maps/place/?q=place_id:" + topic.val().storeLocation;
 
       image.src = topic.val().imageURL;
 
@@ -75,7 +79,7 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       var prodNameEle = document.createElement("h2");
       var prodDescEle = document.createElement("p");
       var storeNameEle = document.createElement("h4");
-      var storeLocationEle = document.createElement("h3");
+      var storeLocationEle = document.createElement("a");
       var image = document.createElement("img");
 
 
@@ -83,7 +87,11 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       prodNameEle.innerHTML = prodName;
       prodDescEle.innerHTML = prodDesc;
       storeNameEle.innerHTML = storeName;
-      storeLocationEle.innerHTML = storeLocation;
+
+      var link = document.createTextNode("View on Google Maps");
+      storeLocationEle.appendChild(link);
+      storeLocationEle.title = "View on Google Maps";
+      storeLocationEle.href = "https://www.google.com/maps/place/?q=place_id:" + storeLocation;
 
       image.src = imageURL;
 

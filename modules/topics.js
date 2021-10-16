@@ -49,8 +49,7 @@ function sub(){
     let storeLocation = document.querySelector(".store-location").value
     let tags = document.querySelector(".tags").value
 
-    if (prodDesc == "" || prodName == "" || prodPrice == "" || storeName == "" ||
-    storeLocation == "") {
+    if (prodName == "" || prodPrice == "" || storeName == "") {
         alert("All fields must be filled!");
         return false;
     } else {
