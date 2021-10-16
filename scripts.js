@@ -1,4 +1,4 @@
-import { signUp, signIn, printTest, autoSignIn } from '/modules/firebase.js'
+import { signUp, signIn, autoSignIn } from '/modules/firebase.js'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-auth.js";
 import { getCookie } from './modules/cookies.js';
 
