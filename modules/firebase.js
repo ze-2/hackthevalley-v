@@ -20,37 +20,14 @@ const firebaseConfig = {
   appId: "1:713963780165:web:d185056016530d2131cb2c"
 };
 
-let firebase = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const db = getDatabase()
-
-function signUp(){
-    console.log('signing up')
-    let email = document.querySelector(".su-email").value;
-    let password = document.querySelector(".su-password").value;
-    const auth = getAuth();
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // ...
-        console.log(user)
-        window.location.href='/pages/home.html'
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // ..
-        console.log(errorCode)
-        console.log(errorMessage)
-      });
-}
-
+const db = getDatabase(app)
 
 function signUp(){
     console.log('signing up')
-    let email = document.querySelector(".su-email").value;
-    let password = document.querySelector(".su-password").value;
+    var email = document.querySelector(".su-email").value;
+    var password = document.querySelector(".su-password").value;
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -71,8 +48,8 @@ function signUp(){
 function signIn(){
   const auth = getAuth();
   keepAuth()
-  let email = document.querySelector(".si-email").value;
-  let password = document.querySelector(".si-password").value;
+  var email = document.querySelector(".si-email").value;
+  var password = document.querySelector(".si-password").value;
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in
@@ -106,7 +83,7 @@ function autoSignIn(auth, email, password){
       console.log(auth)
       // ...
       console.log("logged in as " + email)
-      let logged = document.querySelector('.logged-in')
+      var logged = document.querySelector('.logged-in')
       logged.innerHTML = "logging you in!"
       setTimeout(() => {window.location.href='/pages/home.html'}, 1000);
 
@@ -151,22 +128,22 @@ function logout(){
   });
 }
 
-let selectedTopic = "";
+var selectedTopic = "";
 
 function updateTopics(){
   const topRef = ref(db, "topics/");
   onValue(topRef,(topics)=>{
-    let itemsContainer = document.querySelector(".items-container")
+    var itemsContainer = document.querySelector(".items-container")
 
     topics.forEach(topic=>{
-      let div = document.createElement("div");
-        let prodPrice = document.createElement("h1");
-        let prodName = document.createElement("h2");
-        let prodDesc = document.createElement("p");
-        let storeName = document.createElement("h4");
-        let storeLocation = document.createElement("h3");
-        let country = document.createElement("h5");
-        let city = document.createElement("h5");
+      var div = document.createElement("div");
+        var prodPrice = document.createElement("h1");
+        var prodName = document.createElement("h2");
+        var prodDesc = document.createElement("p");
+        var storeName = document.createElement("h4");
+        var storeLocation = document.createElement("h3");
+        var country = document.createElement("h5");
+        var city = document.createElement("h5");
 
       prodPrice.innerHTML = topic.val().prodPrice;
       prodName.innerHTML = topic.val().prodName;
@@ -191,7 +168,7 @@ function updateTopics(){
 }
 
 function submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, country, city, tags){
-  set(ref(db, "topics/" + topTitle),{
+  set(ref(db, "topics/" + prodName),{
     prodName: prodName,
     prodDesc: prodDesc,
     prodPrice: prodPrice,
@@ -204,15 +181,15 @@ function submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, co
 }
 
 function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, country, city){
-  let itemsContainer = document.querySelector("items-container")
-  let div = document.createElement("div");
-      let prodPrice = document.createElement("h1");
-      let prodName = document.createElement("h2");
-      let prodDesc = document.createElement("p");
-      let storeName = document.createElement("h4");
-      let storeLocation = document.createElement("h3");
-      let country = document.createElement("h5");
-      let city = document.createElement("h5");
+  var itemsContainer = document.querySelector("items-container")
+  var div = document.createElement("div");
+      var prodPrice = document.createElement("h1");
+      var prodName = document.createElement("h2");
+      var prodDesc = document.createElement("p");
+      var storeName = document.createElement("h4");
+      var storeLocation = document.createElement("h3");
+      var country = document.createElement("h5");
+      var city = document.createElement("h5");
 
       prodPrice.innerHTML = prodPrice;
       prodName.innerHTML = prodName;
@@ -235,7 +212,7 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, coun
       // h2.classList.add('class-name')
 
       div.addEventListener('click',(e)=>{
-        localStorage.setItem("selectedTopic", topTitle);
+        localStorage.setItem("selectedTopic", prodName);
         console.log(selectedTopic + " is selected")
         setTimeout(() => {window.location.href='/pages/topic.html'}, 500);
       })
