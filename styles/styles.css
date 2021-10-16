@@ -1,0 +1,43 @@
+@import url(//https://fonts.googleapis.com/css?family=Poppins);
+@import url(//https://fonts.googleapis.com/css?family=Inter);
+
+.index-body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.727),rgba(0, 0, 0, 0.7)) , url("https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2F4_3_horizontal_-_1200x900%2Fpublic%2Fimage%2F2018%2F01%2Fmain%2F1801whealthyshoppingcart.jpg%3Fitok%3DhXpmoCXx%261515530052"); /* The image used */
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    font-family: "Poppins", sans-serif;
+}
+
+.index-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+
+.index.li {
+    float: left;
+  }
+  
+.index-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+.index-li a:hover:not(.active) {
+    background-color: #111;
+  }
+
+.index-active {
+    background-color: #04AA6D;
+  }
+  
