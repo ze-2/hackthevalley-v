@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js";
-import { getDatabase, ref, set, onValue, get } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
+import { getDatabase, ref, set, push, onValue, get } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-database.js";
 import { splitStr } from "./topics.js";
 
 
@@ -45,7 +45,7 @@ function updateTopics(){
       div.appendChild(prodDesc);
       div.appendChild(storeName);
       div.appendChild(storeLocation);
-      div.appendChild(imageURL);
+      div.appendChild(image);
 
       itemsContainer.appendChild(div)
     });
@@ -54,7 +54,9 @@ function updateTopics(){
 }
 
 function submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, tags, imageURL) {
-  set(ref(db, "topics/" + prodName), {
+  const postListRef = ref(db, 'topics');
+  const newPostRef = push(postListRef);
+  set(newPostRef, {
     prodName: prodName,
     prodDesc: prodDesc,
     prodPrice: prodPrice,
@@ -81,7 +83,8 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       prodDescEle.innerHTML = prodDesc;
       storeNameEle.innerHTML = storeName;
       storeLocationEle.innerHTML = storeLocation;
-      image.src = topic.val().imageURL;
+
+      image.src = imageURL;
 
       div.appendChild(prodPriceEle);
       div.appendChild(prodNameEle);
@@ -104,6 +107,7 @@ function search(search){
           console.log(topMeta.val().tags)
           if (topMeta.val().tags.includes(search)){
             console.log("trying to add div")
+            console.log(topMeta.val().prodName, topMeta.val().prodDesc, topMeta.val().prodPrice, topMeta.val().storeName, topMeta.val().storeLocation, topMeta.val().imageURL);
             createDiv(topMeta.val().prodName, topMeta.val().prodDesc, topMeta.val().prodPrice, topMeta.val().storeName, topMeta.val().storeLocation, topMeta.val().imageURL);
           };
           if (topMeta.val().prodName.toLowerCase() == search){
