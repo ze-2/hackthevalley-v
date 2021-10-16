@@ -23,7 +23,7 @@ function sub(){
     } else {
         submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, country, city, tags);
         console.log("submitted topic to firebase")
-        setTimeout(() => {window.location.href='../home.html'}, 1000);
+        setTimeout(() => { window.location.href = '../pages/home.html' }, 1000);
     }
 }
 

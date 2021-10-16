@@ -15,5 +15,6 @@ let password = getCookie("password")
 
 if(email && password){
   console.log("Signing in...")
+  console.log(email)
   setTimeout(autoSignIn(getAuth(),email,password),1000);
 }
