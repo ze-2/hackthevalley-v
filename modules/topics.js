@@ -12,9 +12,15 @@ const firebaseConfig = {
   appId: "1:713963780165:web:d185056016530d2131cb2c"
 };
 
+function uuidv4() {
+  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+  );
+}
+
 const app = initializeApp(firebaseConfig);
 const storage = getStorage(app);
-const storageRef = ref(storage, 'images');
+const storageRef = ref(storage, uuidv4());
 
 function splitStr(str){
     str = str.toLowerCase()
@@ -32,7 +38,7 @@ if (fileSelect) {
 
 let selectedFile;
 function handleFileUploadChange(e) {
-  selectedFile = e.target.files[0];
+    selectedFile = e.target.files[0];
 }
 
 function sub(){
@@ -68,7 +74,8 @@ function sub(){
                     break;
                 }
             },
-            (error) => {
+                (error) => {
+                    console.log(error);
             },
             () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {

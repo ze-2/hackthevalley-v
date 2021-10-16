@@ -65,6 +65,7 @@ function submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, ta
     imageURL: imageURL,
     tags: splitStr(tags)
   });
+  setTimeout(() => {window.location.href='../pages/home.html'}, 1000);
 }
 
 function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imageURL){
