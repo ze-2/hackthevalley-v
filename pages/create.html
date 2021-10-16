@@ -2,14 +2,14 @@
 <html>
     <head>
         <title>Create a post</title>
-        <!-- <script>
+        <script>
             let autocomplete;
             function initAutocomplete() {
                 console.log('loaded');
                 autocomplete = new google.maps.places.Autocomplete(
                     document.getElementById('autocomplete'),
                     {
-
+                        fields: ['place_id', 'name']
                     });
 
                     autocomplete.addListener('place_changed', onPlaceChanged);
@@ -22,12 +22,15 @@
                 } else {
                     console.log(place.name);
                     document.getElementById('autocomplete').value = place.name;
+                    console.log(place.place_id);
+                    //document.getElementById('place-id').value = place.place_id;
+                    // have to wait for billing to be enabled
                 }
             }
         </script>
         <script async
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDgj332_tiNbcUewufA263Pi97f0nsV18&libraries=places&callback=initAutocomplete">
-        </script> -->
+        </script>
     </head>
     <body>
 
@@ -45,10 +48,10 @@
             <input type="text" class="prod-name" placeholder="Product name">
             <input type="text" class="prod-desc" placeholder="Description of your product">
             <input type="number" step=".01" class="prod-price" placeholder="Product price">
-            <input type="text" class="store-name" placeholder="Store Name">
-            <!--just the location for now-->
-            <input type="text" class="store-location" placeholder="Store Location">
-            <!-- <input id="autocomplete" type="text" class="store-location" placeholder="Store Location"> -->
+            <input id="autocomplete" type="text" class="store-name" placeholder="Store">
+            <!-- <input id="place-id" type="hidden" class="store-location"> -->
+            <!-- Just for now -->
+            <input id="place-id" type="hidden" class="store-location" value="ChIJK836_9sZ2jERe511GP-YbFU">
             <input type="text" class="tags" placeholder="Product categories (seperated by a space)">
             <input type="file" class="file-select" accept="image/*" />
 
