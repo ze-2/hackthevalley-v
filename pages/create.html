@@ -2,6 +2,32 @@
 <html>
     <head>
         <title>Create a post</title>
+        <script>
+            let autocomplete;
+            function initAutocomplete() {
+                console.log('loaded');
+                autocomplete = new google.maps.places.Autocomplete(
+                    document.getElementById('autocomplete'),
+                    {
+
+                    });
+
+                    autocomplete.addListener('place_changed', onPlaceChanged);
+                }
+
+            function onPlaceChanged() {
+                var place = autocomplete.getPlace();
+                if (!place.geometry) {
+                    document.getElementById('autocomplete').placeholder = 'Enter a place';
+                } else {
+                    console.log(place.name);
+                    document.getElementById('autocomplete').value = place.name;
+                }
+            }
+        </script>
+        <script async
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDgj332_tiNbcUewufA263Pi97f0nsV18&libraries=places&callback=initAutocomplete">
+        </script>
     </head>
     <body>
 
@@ -11,9 +37,7 @@
             <input type="text" class="prod-desc" placeholder="Description of your product">
             <input type="text" class="prod-price" placeholder="Product price">
             <input type="text" class="store-name" placeholder="Store Name">
-            <input type="text" class="store-location" placeholder="Store Location">
-            <input type="text" class="country" placeholder="Country"></input>
-            <input type="text" class="city" placeholder="City">
+            <input id="autocomplete" type="text" class="store-location" placeholder="Store Location">
             <input type="text" class="tags" placeholder="Product categories (seperated by a space)">
 
             <button class="submit-topic">Submit Topic!</button>
