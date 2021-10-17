@@ -8,15 +8,34 @@
     <title>DealHunter</title>
 </head>
 <body class="index-body">
-    <div class="navbar">
-        <ul class="index-ul">
-            <li class="index-li"><a class="index-active" href="index.html"><h3>Welcome, User</h3></a></li>
-            <li class="index-li"><a href="pages/home.html">Community Post</a></li>
-            <li class="index-li"><a href="pages/search.html">Search for an item</a></li>
-            <li class="index-li"><a href="pages/create.html">Upload your recommendation</a></li>
-        </ul>
+    <div class="navigation-wrapper">
+        <div class="navbar">
+            <ul class="index-ul">
+                <li class="index-li"><a class="index-active" href="index.html"><h3>Welcome, User</h3></a></li>
+                <li class="index-li"><a href="pages/home.html">Community Post</a></li>
+                <li class="index-li"><a href="pages/search.html">Search for an item</a></li>
+                <li class="index-li"><a href="pages/create.html">Upload your recommendation</a></li>
+            </ul>
+        </div>
+    
+        <div style="display: flex; flex-direction: column; margin-top: 255px;">
+            <div class="index-Search-Bar">
+                <h1>Search a Produce</h1>
+                <div>
+                    <input type="text" placeholder="What are you looking for?" class="searchbar">
+                    <button class="search"></button>
+                </div>
+            </div>
+    
+            <h1 class="results">Results:</h1>
+            <div class="items-container">
+                
+            </div>
+        </div>
     </div>
 
-    <h1>Welcome to DealHunter</h1>
+
 </body>
+<script type="module" src="../modules/search.js"></script>
+<script type="module" src="../modules/firebase.js"></script>
 </html>
