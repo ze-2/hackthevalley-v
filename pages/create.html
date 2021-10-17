@@ -17,15 +17,10 @@
 
             function onPlaceChanged() {
                 var place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    document.getElementById('autocomplete').placeholder = 'Enter a place';
-                } else {
                     console.log(place.name);
                     document.getElementById('autocomplete').value = place.name;
                     console.log(place.place_id);
-                    //document.getElementById('place-id').value = place.place_id;
-                    // have to wait for billing to be enabled
-                }
+                    document.getElementById('place-id').value = place.place_id;
             }
         </script>
         <script async
@@ -45,13 +40,11 @@
 
         <div class="form">
 
-            <input type="text" class="prod-name" placeholder="Product name">
+            <input type="text" class="prod-name" placeholder="Product name" required>
             <input type="text" class="prod-desc" placeholder="Description of your product">
-            <input type="number" step=".01" class="prod-price" placeholder="Product price">
-            <input id="autocomplete" type="text" class="store-name" placeholder="Store">
-            <!-- <input id="place-id" type="hidden" class="store-location"> -->
-            <!-- Just for now -->
-            <input id="place-id" type="hidden" class="store-location" value="ChIJK836_9sZ2jERe511GP-YbFU">
+            <input type="number" step=".01" class="prod-price" placeholder="Product price" required>
+            <input id="autocomplete" type="text" class="store-name" placeholder="Store" required>
+            <input id="place-id" type="hidden" class="store-location">
             <input type="text" class="tags" placeholder="Product categories (seperated by a space)">
             <input type="file" class="file-select" accept="image/*" />
 
