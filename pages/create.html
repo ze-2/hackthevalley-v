@@ -1,64 +1,68 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Create a post</title>
-        <script>
-            let autocomplete;
-            function initAutocomplete() {
-                console.log('loaded');
-                autocomplete = new google.maps.places.Autocomplete(
-                    document.getElementById('autocomplete'),
-                    {
-                        fields: ['place_id', 'name']
-                    });
 
-                    autocomplete.addListener('place_changed', onPlaceChanged);
-                }
+  <head>
+    <title>Create a post</title>
+    <link rel="stylesheet" href="../styles/create.css">
+    <script>
+      let autocomplete;
 
-            function onPlaceChanged() {
-                var place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    document.getElementById('autocomplete').placeholder = 'Enter a place';
-                } else {
-                    console.log(place.name);
-                    document.getElementById('autocomplete').value = place.name;
-                    console.log(place.place_id);
-                    //document.getElementById('place-id').value = place.place_id;
-                    // have to wait for billing to be enabled
-                }
-            }
-        </script>
-        <script async
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDgj332_tiNbcUewufA263Pi97f0nsV18&libraries=places&callback=initAutocomplete">
-        </script>
-    </head>
-    <body>
+      function initAutocomplete() {
+        console.log('loaded');
+        autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById('autocomplete'), {
+            fields: ['place_id', 'name']
+          });
 
-        <div class="navbar">
-            <ul>
-                <li><a href="../index.html">Index</a></li>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="create.html">Create</a></li>
-            </ul>
-        </div>
+        autocomplete.addListener('place_changed', onPlaceChanged);
+      }
 
-        <div class="form">
+      function onPlaceChanged() {
+        var place = autocomplete.getPlace();
+        console.log(place.name);
+        document.getElementById('autocomplete').value = place.name;
+        console.log(place.place_id);
+        document.getElementById('place-id').value = place.place_id;
+      }
 
-            <input type="text" class="prod-name" placeholder="Product name">
-            <input type="text" class="prod-desc" placeholder="Description of your product">
-            <input type="number" step=".01" class="prod-price" placeholder="Product price">
-            <input id="autocomplete" type="text" class="store-name" placeholder="Store">
-            <!-- <input id="place-id" type="hidden" class="store-location"> -->
-            <!-- Just for now -->
-            <input id="place-id" type="hidden" class="store-location" value="ChIJK836_9sZ2jERe511GP-YbFU">
-            <input type="text" class="tags" placeholder="Product categories (seperated by a space)">
-            <input type="file" class="file-select" accept="image/*" />
+    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDgj332_tiNbcUewufA263Pi97f0nsV18&libraries=places&callback=initAutocomplete">
+    </script>
+  </head>
 
-            <button class="submit-topic">Submit Topic!</button>
-        </div>
+  <body>
 
-    </body>
-    <script type="module" src="../modules/create.js"></script>
-    <script type="module" src="../modules/firebase.js"></script>
+    <div class="navbar">
+      <ul>
+        <li><a href="../index.html">Index</a></li>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="create.html">Create</a></li>
+      </ul>
+    </div>
+
+    <br><br><br>
+    
+    <div class="form">
+      <input type="text" class="prod-name" placeholder="Product name" required>
+      <br>
+      <input type="text" class="prod-desc" placeholder="Description of your product">
+      <br>
+      <input type="number" step=".01" class="prod-price" placeholder="Product price" required>
+      <br>
+      <input id="autocomplete" type="text" class="store-name" placeholder="Store" required>
+      <br>
+      <input id="place-id" type="hidden" class="store-location">
+      <br>
+      <input type="text" class="tags" placeholder="Product categories (seperated by a space)">
+        <br>
+      <input type="file" class="file-select" accept="image/*" />
+
+      <button class="submit-topic">Submit Topic!</button>
+    </div>
+
+  </body>
+  <script type="module" src="../modules/create.js"></script>
+  <script type="module" src="../modules/firebase.js"></script>
+
 </html>
