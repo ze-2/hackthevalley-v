@@ -58,6 +58,8 @@ function updateTopics(){
       div.appendChild(image);
       div.appendChild(contact);
 
+      div.classList.add('card')
+
       itemsContainer.appendChild(div)
     });
 
