@@ -46,6 +46,7 @@ function sub(){
     let prodDesc = document.querySelector(".prod-desc").value
     let prodPrice = document.querySelector(".prod-price").value
     let storeName = document.querySelector(".store-name").value
+    let contact = document.querySelector(".contact").value
     let storeLocation = document.querySelector(".store-location").value
     let tags = document.querySelector(".tags").value
 
@@ -55,7 +56,7 @@ function sub(){
     } else {
         if (selectedFile === undefined) {
             var imageURL = '';
-            submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, tags, imageURL);
+            submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, tags, imageURL, contact);
             console.log("submitted topic to firebase")
         } else {
             const uploadTask = uploadBytesResumable(storageRef, selectedFile);
@@ -80,7 +81,7 @@ function sub(){
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     var imageURL = downloadURL;
                     console.log(imageURL)
-                    submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, tags, imageURL);
+                    submitTopic(prodName, prodDesc, prodPrice, storeName, storeLocation, tags, imageURL, contact);
                     console.log("submitted topic to firebase")
                 });
             }
