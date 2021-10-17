@@ -94,7 +94,7 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       var storeNameEle = document.createElement("h4");
       var storeLocationEle = document.createElement("a");
       var image = document.createElement("img");
-      var contact = document.createElement("a");
+      var contactEle = document.createElement("a");
 
       prodPriceEle.innerHTML = "$" + prodPrice;
       prodNameEle.innerHTML = prodName;
@@ -107,19 +107,23 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       storeLocationEle.href = "https://www.google.com/maps/place/?q=place_id:" + storeLocation;
 
       var contactLink = document.createTextNode("Contact poster");
-      contact.appendChild(contactLink);
-      contact.title = "Contact poster";
-      contact.href = "mailto:" + contact;
+      contactEle.appendChild(contactLink);
+      contactEle.title = "Contact poster";
+      console.log(contact)
+      contactEle.href = "mailto:" + contact;
 
-  image.src = imageURL;
-
+      if (imageURL == '') {
+        image.src = 'https://firebasestorage.googleapis.com/v0/b/hackthevalley-17a91.appspot.com/o/none.png?alt=media&token=4ceca010-db23-4ffa-9789-d4fd728ea100';
+      } else {
+        image.src = imageURL;
+      }
       div.appendChild(image);
       div.appendChild(prodPriceEle);
       div.appendChild(prodNameEle);
       div.appendChild(prodDescEle);
       div.appendChild(storeNameEle);
       div.appendChild(storeLocationEle);
-      div.appendChild(contact);
+      div.appendChild(contactEle);
 
       // to add css classes
       div.classList.add('card')
@@ -133,10 +137,10 @@ function search(search) {
       var success = false;
       topics.forEach(topic => {
         topic.forEach(topMeta => {
-          if (topMeta.val().tags.includes(search) || topMeta.val().prodName.toLowerCase() == search || topMeta.val().storeName.toLowerCase().includes(search.toLowerCase()) ) {
+          if (topMeta.val().tags.includes(search) || topMeta.val().storeName.toLowerCase().includes(search.toLowerCase()) || topMeta.val().prodName.toLowerCase().includes(search.toLowerCase()) || topMeta.val().prodDesc.toLowerCase().includes(search.toLowerCase())) {
             success = true;
             console.log("trying to add div")
-            createDiv(topMeta.val().prodName, topMeta.val().prodDesc, topMeta.val().prodPrice, topMeta.val().storeName, topMeta.val().storeLocation, topMeta.val().imageURL);
+            createDiv(topMeta.val().prodName, topMeta.val().prodDesc, topMeta.val().prodPrice, topMeta.val().storeName, topMeta.val().storeLocation, topMeta.val().imageURL, topMeta.val().contact);
           }
         });
       });

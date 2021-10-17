@@ -47,5 +47,4 @@ a:active, a:hover {
 
 .card:hover {
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 1);
-    cursor: pointer;
 }
