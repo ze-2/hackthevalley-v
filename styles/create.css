@@ -1,39 +1,71 @@
-ul {
-    list-style-type: none;
+* {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    background-color: #333;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
 }
 
-li {
-    float: left;
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../src/create.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-li a {
-    display: block;
-    color: white;
+h1 {
+    color: #fff;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    white-space: nowrap;
+    font-size: 48px;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-    background-color: #111;
-}
-input{
-    width: 65%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    resize: vertical;
-    margin: 10px;
+.form {
+    max-width: 75%;
+    margin: 50px auto;
 }
 
-button{
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin: 10px;
+input {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 5px;
+    line-height: 22px;
+    border: linear-gradient(to right, #031f03, #0f9b0f);
+    transition: all 0.3s;
+    padding: 13px;
+    margin-bottom: 15px;
+    width: 100%;
+    box-sizing: border-box;
+    outline: 0;
+    border-width: 2px;
+}
+
+input:focus {
+    border: solid #0f9b0f;
+}
+
+
+button {
+    font-family: 'Inter', sans-serif;
+    width: 100%;
+    background-image: linear-gradient(to right, #031f03, #0f9b0f);
+    background-size: 200% auto;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: -4px;
+    font-weight: 700;
+    transition: 0.25s linear;
+}
+
+button:hover {
+    background-position: right center;
 }

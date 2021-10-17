@@ -4,24 +4,35 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../styles/create.css">
-        <title>Search</title>
+        <link rel="stylesheet" href="../styles/navbar.css">
+        <link rel="stylesheet" href="../styles/search.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+        <title>Search | Check & Go</title>
     </head>
     <body>
 
+    <div class="navigation-wrapper">
         <div class="navbar">
             <ul>
-                <li><a href="../index.html">Index</a></li>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="search.html">Search</a></li>
-                <li><a href="create.html">Create</a></li>
+                <li><a href="../index.html">Welcome</a></li>
+                <li><a href="home.html">Posts</a></li>
+                <li><a class="active" href="search.html">Search for an item</a></li>
+                <li><a href="create.html">Upload an item</a></li>
+                <li><a href="scan.html">Scan</a></li>
             </ul>
         </div>
+    </div>
 
-        <input type="text" placeholder="search..." class="searchbar">
-        <button class="search"></button>
+        <div class="hero">
+            <h1>Search for a product or location...</h1>
+            <div class="search-box">
+                <button class="search"><i class="fas fa-search"></i></button>
+                <input type="text" class="searchbar" placeholder="Type to Search...">
+            </div>
+        </div>
 
-        <h1 class="results">Results:</h1>
+
+        <h2 class="results">Results:</h2>
         <div class="items-container">
 
         </div>

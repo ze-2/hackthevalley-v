@@ -1,0 +1,56 @@
+body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)) , url("/src/index.jpg");
+    background-color: #000000;
+    height: 500px;
+    background-position: center;
+    background-size: cover;
+    font-family: "Inter", sans-serif;
+}
+
+
+h1 {
+    color: white;
+  margin-bottom: 0.5em;
+  font-family: 'Poppins';
+  font-weight: bolder;
+  font-size: 5em;
+  color: white;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+
+.type-span {
+  border-right: .05em solid;
+  animation: caret 1s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.centered{
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  color: white;
+  background-color: black;
+  font-family: "Inter", sans-serif;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}

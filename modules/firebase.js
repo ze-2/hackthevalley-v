@@ -33,7 +33,7 @@ function updateTopics(){
       var image = document.createElement("img");
       var contact = document.createElement("a");
 
-      prodPrice.innerHTML = topic.val().prodPrice;
+      prodPrice.innerHTML = "$" + topic.val().prodPrice;
       prodName.innerHTML = topic.val().prodName;
       prodDesc.innerHTML = topic.val().prodDesc;
       storeName.innerHTML = topic.val().storeName;
@@ -47,15 +47,18 @@ function updateTopics(){
       contact.appendChild(contactLink);
       contact.title = "Contact poster";
       contact.href = "mailto:" + topic.val().contact;
+      if (topic.val().imageURL == '') {
+        image.src = 'https://firebasestorage.googleapis.com/v0/b/hackthevalley-17a91.appspot.com/o/none.png?alt=media&token=4ceca010-db23-4ffa-9789-d4fd728ea100';
+      } else {
+        image.src = topic.val().imageURL;
+      }
 
-      image.src = topic.val().imageURL;
-
+      div.appendChild(image);
       div.appendChild(prodPrice);
       div.appendChild(prodName);
       div.appendChild(prodDesc);
       div.appendChild(storeName);
       div.appendChild(storeLocation);
-      div.appendChild(image);
       div.appendChild(contact);
 
       div.classList.add('card')
@@ -93,7 +96,7 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       var image = document.createElement("img");
       var contact = document.createElement("a");
 
-      prodPriceEle.innerHTML = prodPrice;
+      prodPriceEle.innerHTML = "$" + prodPrice;
       prodNameEle.innerHTML = prodName;
       prodDescEle.innerHTML = prodDesc;
       storeNameEle.innerHTML = storeName;
@@ -108,14 +111,14 @@ function createDiv(prodName, prodDesc, prodPrice, storeName, storeLocation, imag
       contact.title = "Contact poster";
       contact.href = "mailto:" + contact;
 
-      image.src = imageURL;
+  image.src = imageURL;
 
+      div.appendChild(image);
       div.appendChild(prodPriceEle);
       div.appendChild(prodNameEle);
       div.appendChild(prodDescEle);
       div.appendChild(storeNameEle);
       div.appendChild(storeLocationEle);
-      div.appendChild(image);
       div.appendChild(contact);
 
       // to add css classes
@@ -139,7 +142,7 @@ function search(search) {
       });
       if (!success) {
         var itemsContainer = document.querySelector(".items-container")
-        var noResult = document.createElement("h1");
+        var noResult = document.createElement("h3");
         var div = document.createElement("div");
         noResult.innerHTML = 'No results found';
         div.appendChild(noResult);
