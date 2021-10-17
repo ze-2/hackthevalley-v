@@ -5,37 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>DealHunter</title>
+    <title>Check & Go</title>
 </head>
-<body class="index-body">
+<body>
     <div class="navigation-wrapper">
         <div class="navbar">
-            <ul class="index-ul">
-                <li class="index-li"><a class="index-active" href="index.html"><h3>Welcome, User</h3></a></li>
-                <li class="index-li"><a href="pages/home.html">Community Post</a></li>
-                <li class="index-li"><a href="pages/search.html">Search for an item</a></li>
-                <li class="index-li"><a href="pages/create.html">Upload your recommendation</a></li>
+            <ul>
+                <li><a class="active" href="index.html">Welcome, User</a></li>
+                <li><a href="pages/home.html">Community Post</a></li>
+                <li><a href="pages/search.html">Search for an item</a></li>
+                <li><a href="pages/create.html">Upload your recommendation</a></li>
             </ul>
         </div>
+    </div>
     
-        <div style="display: flex; flex-direction: column; margin-top: 255px;">
-            <div class="index-Search-Bar">
-                <h1>Search a Produce</h1>
-                <div>
-                    <input type="text" placeholder="What are you looking for?" class="searchbar">
-                    <button class="search"></button>
-                </div>
-            </div>
+    <h1 class="centered">Welcome to, Check & Go</h1>   
+
+    <h2>Search your item</h2>
+    <div class="search">
+        <input type="search" class="search-box" />
+        <span class="search-button">
+          <span class="search-icon"></span>
+        </span>
+    </div>
     
-            <h1 class="results">Results:</h1>
-            <div class="items-container">
-                
-            </div>
+    <h3>Results:</h3>
+    <div class="card">
+        <div class="container">
+            <img src = "src/imagelink.jpg (Plz Fix This)" alt="Product Picture" style="width:100%">
+            <p><b>price</b></p>
+            <p><b>product name</b></p>
+            <h4>product description</h4>
+            <h4>shop name</h4>
+            <a title="View on Google Maps" href="https://www.google.com/maps/place/?q=place_id:(place_id)">View on Google Maps</a>
+            <br>
+            <br>
+            <img src="user-uploaded media">
+            <a title="Contact poster" href="mailto:user-email@email.com">Contact poster</a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="card">
+        <div class="container">
+            <img src = "src/imagelink.jpg (Plz Fix This)" alt="Product Picture" style="width:100%">
+            <p><b>price</b></p>
+            <p><b>product name</b></p>
+            <h4>product description</h4>
+            <h4>shop name</h4>
+            <a title="View on Google Maps" href="https://www.google.com/maps/place/?q=place_id:(place_id)">View on Google Maps</a>
+            <br>
+            <br>
+            <img src="user-uploaded media">
+            <a title="Contact poster" href="mailto:user-email@email.com">Contact poster</a>
         </div>
     </div>
 
 
 </body>
+<br>
+
+<footer>
+    Copyright &copy; Check&Go - Hack The Valley V 2021
+</footer>
 <script type="module" src="../modules/search.js"></script>
 <script type="module" src="../modules/firebase.js"></script>
+<script type="module" src="../modules/searchbox.js"></script>
+<script type="module" src="../modules/typewritter.js"></script>
 </html>
