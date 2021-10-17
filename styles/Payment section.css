@@ -97,7 +97,7 @@ input:focus+label {
     background-color: #3F51B5
 }
 
-.fit-image {-
+.fit-image {
     width: 100%;
     object-fit: cover
 }
