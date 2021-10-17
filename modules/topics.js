@@ -50,7 +50,7 @@ function sub(){
     let storeLocation = document.querySelector(".store-location").value
     let tags = document.querySelector(".tags").value
 
-    if (prodName == "" || prodPrice == "" || storeName == "") {
+    if (prodName == "" || prodPrice == "" || storeName == "" || contact == "") {
         alert("All fields must be filled!");
         return false;
     } else {

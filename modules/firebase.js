@@ -128,10 +128,9 @@ function search(search) {
       var success = false;
       topics.forEach(topic => {
         topic.forEach(topMeta => {
-          if (topMeta.val().tags.includes(search) || topMeta.val().prodName.toLowerCase() == search) {
+          if (topMeta.val().tags.includes(search) || topMeta.val().prodName.toLowerCase() == search || topMeta.val().storeName.toLowerCase().includes(search.toLowerCase()) ) {
             success = true;
             console.log("trying to add div")
-            console.log(topMeta.val().prodName, topMeta.val().prodDesc, topMeta.val().prodPrice, topMeta.val().storeName, topMeta.val().storeLocation, topMeta.val().imageURL);
             createDiv(topMeta.val().prodName, topMeta.val().prodDesc, topMeta.val().prodPrice, topMeta.val().storeName, topMeta.val().storeLocation, topMeta.val().imageURL);
           }
         });
