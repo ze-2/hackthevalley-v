@@ -4,13 +4,7 @@ import { splitStr } from "./topics.js";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD2QJoM4F3HWT5gVmzd_VkHr9TGQmh9JQI",
-  authDomain: "hackthevalley-17a91.firebaseapp.com",
-  databaseURL: "https://hackthevalley-17a91-default-rtdb.firebaseio.com",
-  projectId: "hackthevalley-17a91",
-  storageBucket: "hackthevalley-17a91.appspot.com",
-  messagingSenderId: "713963780165",
-  appId: "1:713963780165:web:d185056016530d2131cb2c"
+  no
 };
 
 const app = initializeApp(firebaseConfig);
